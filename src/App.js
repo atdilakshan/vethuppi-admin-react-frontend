@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+// admin bootstrap css here
+import './assets/admin/vendor/bootstrap/css/bootstrap.min.css'
+import './assets/admin/vendor/bootstrap-icons/bootstrap-icons.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// admin custom css here
+import './assets/admin/css/style.css'
+
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// user pages
+
+// admin pages
+import Dashboard from './pages/admin/Dashboard'
+import Products from './pages/admin/Products'
+import Customers from './pages/admin/Customers'
+import Orders from './pages/admin/Orders'
+
+import ProductDetail from './pages/admin/Product-detail'
+import CustomerDetail from './pages/admin/Customer-detail'
+import OrderDetail from './pages/admin/Order-detail'
+
+export default function App() {
+    return (
+        <Router>
+            <Routes>
+                {/* user pages */}
+            
+                {/* admin pages */}
+                <Route exact path='/admin' element={<Dashboard />} />
+                <Route exact path='/admin/products' element={<Products />} />
+                <Route exact path='/admin/customers' element={<Customers />} />
+                <Route exact path='/admin/orders' element={<Orders />} />
+
+                <Route exact path='/admin/products/product-detail' element={<ProductDetail />} />
+                <Route exact path='/admin/customers/customer-detail' element={<CustomerDetail />} />
+                <Route exact path='/admin/orders/order-detail' element={<OrderDetail />} />
+
+            </Routes>
+        </Router>
+    )
 }
-
-export default App;
